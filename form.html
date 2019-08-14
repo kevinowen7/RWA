@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Gomamedia | Forms</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+	<link rel="shortcut icon" href="images/icon/logo-mini.png" />
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/firebase_config.js"></script>
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active">
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            
+                            <div class="header-button">
+                                    
+                                <div class="account-wrap">
+                                    <div class="account-item js-item-menu">
+                                        
+                                        <div class="content">
+                                            <a class="js-acc-btn" id="account" href="#"></a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                           
+                                            <div class="account-dropdown__footer">
+                                                <a href="#" onclick="signOut()">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Remainder Form</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="./table.html" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">ID Remainder</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="id-remainder" name="text-input" placeholder="Example : MyShop" class="form-control" required>
+                                                    <small id="checkerData" class="form-text text-muted"></small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Nomor Tujuan</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="nomor-tujuan" name="text-input" class="form-control" placeholder="Example : 6289668903268" required>
+                                                    <small class="form-text" style="color:red">*Sebelum menambah nomor tujuan baru silahkan verifikasi nomor terlebih dahulu</small><small class="form-text text-muted"> <a href="https://api.whatsapp.com/send?phone=14155238886&text=join%20grow-won" target="_blank" rel="nofollow noopener noreferrer">Click Here</a></small>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Link Spreadsheet</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input type="text" id="link-ss" name="text-input" class="form-control" placeholder="Example : https://docs.google.com/spreadsheets/d/1HRz0FXkw1HH72t_fzouPIyLj-tvdZEPkZlwHGnWEcCM/edit#gid=1851823115" required>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row form-group">
+                                                <div class="col col-md-3 col-lg-3">
+                                                    <label class=" form-control-label">Remainder Range</label>
+                                                </div>
+                                                <div class="col col-md-9 col-lg-9">
+                                                    <div class="form-check-inline form-check">
+                                                        <label for="inline-checkbox1" class="form-check-label " style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox1" name="inline-checkbox" value="1" class="form-check-input">1
+                                                        </label>
+                                                        <label for="inline-checkbox2" class="form-check-label "  style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox2" name="inline-checkbox" value="2" class="form-check-input">2 
+                                                        </label>
+                                                        <label for="inline-checkbox3" class="form-check-label "  style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox3" name="inline-checkbox" value="3" class="form-check-input">3 
+                                                        </label>
+                                                        <label for="inline-checkbox3" class="form-check-label "  style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox3" name="inline-checkbox" value="4" class="form-check-input">4 
+                                                        </label>
+                                                        <label for="inline-checkbox3" class="form-check-label "  style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox3" name="inline-checkbox" value="5" class="form-check-input">5 
+                                                        </label>
+                                                        <label for="inline-checkbox3" class="form-check-label "  style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox3" name="inline-checkbox" value="6" class="form-check-input">6 
+                                                        </label>
+                                                        <label for="inline-checkbox3" class="form-check-label "  style="margin-right: 10px;">
+                                                            <input type="checkbox" id="inline-checkbox3" name="inline-checkbox" value="7" class="form-check-input">7 
+                                                        </label>
+                                                        <label for="inline-checkbox3" class="form-check-label "  style="margin-right: 10px;">
+                                                           hari Setelah tanggal order
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Waktu Pengerjaan</label>
+                                                </div>
+                                                <div class="col col-md-3">
+                                                    <input type="number" class="form-control" id="waktu"  placeholder="Example : 7" required>
+                                                    
+                                                </div>
+                                                <div class="col col-md-3">
+                                                    <label   style="margin-right: 10px;">
+                                                        hari
+                                                     </label>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="card-footer">
+												<button id="btn-submit" type="submit" class="btn btn-primary btn-sm" id="btn-submit">
+													<i class="fa fa-dot-circle-o"></i> Submit
+												</button>
+												<div id="loadingUserHead" style="display: none;">
+													<i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw red"></i>
+													<span class="sr-only">Loading...</span>
+											</div>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+    <script src="js/login_check.js"></script>
+    <script src="js/custom_form.js"></script>
+</body>
+
+</html>
+<!-- end document-->
