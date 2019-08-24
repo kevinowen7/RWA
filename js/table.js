@@ -91,9 +91,11 @@ data.once('child_added', function(snapshot) {
 			stat="<span class='status--denied'>None</span>"
 		}
 		var remind_time = snapshot.child("remind_time").val().split("//").join(" , ");
+		var hKolom = snapshot.child("kolom").val().split("//").join(" , ");
+		
 		
 		var waktu = snapshot.child("waktu").val();
-		table.row.add([id,link_ss,remind_time,waktu,stat,"<div class='table-data-feature'><button class='item' data-toggle='tooltip' data-placement='top' title='Delete' onclick=deleteID("+id+")><i class='zmdi zmdi-delete'></i></button></div>"]);	
+		table.row.add([id,link_ss,remind_time,hKolom,waktu,stat,"<div class='table-data-feature'><button class='item' data-toggle='tooltip' data-placement='top' title='Delete' onclick=deleteID('"+id+"')><i class='zmdi zmdi-delete'></i></button></div>"]);	
 		table.draw();
 		$("table tr").hide();
 		$("table tr").each(function(index){

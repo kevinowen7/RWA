@@ -1,4 +1,5 @@
 remindTime=""
+kolomR=""
 $("form").submit(function(){
     $("#loadingUserHead").fadeIn(250, function() {
         $(this).removeClass("hide");
@@ -12,12 +13,17 @@ $("form").submit(function(){
     $("input[name='inline-checkbox']:checked").each(function(){
         remindTime += $(this).val()+"//"
     });
+	
+	$("input[name='inline-checkbox1']:checked").each(function(){
+        kolomR += $(this).val()+"//"
+    });
     usRef = firebase.database().ref("data").child(uid+"/"+idReminder);
     
     usRef.update({
         "nomor_tujuan" : nomorTujuan,
         "link_ss": linkSs,
         "remind_time": remindTime,
+		"kolom": kolomR,
         "waktu": waktu
     })
 
