@@ -1,35 +1,48 @@
 remindTime=""
 kolomR=""
 $("form").submit(function(){
-    $("#loadingUserHead").fadeIn(250, function() {
-        $(this).removeClass("hide");
-    })
-    var user = firebase.auth().currentUser;
-    var uid = user.uid
-    var idReminder = $("#id-remainder").val();
-    var nomorTujuan = $("#nomor-tujuan").val();
-    var waktu = $("#waktu").val();
-    var linkSs = $("#link-ss").val();
-    $("input[name='inline-checkbox']:checked").each(function(){
-        remindTime += $(this).val()+"//"
-    });
 	
-	$("input[name='inline-checkbox1']:checked").each(function(){
-        kolomR += $(this).val()+"//"
-    });
-    usRef = firebase.database().ref("data").child(uid+"/"+idReminder);
-    
-    usRef.update({
-        "nomor_tujuan" : nomorTujuan,
-        "link_ss": linkSs,
-        "remind_time": remindTime,
-		"kolom": kolomR,
-        "waktu": waktu
-    })
-
-    setTimeout(() => {
-        window.location.href="table.html"
-    }, 2000);
+    var linkSs = $("#link-ss").val();
+	//validasi spreadsheet link
+	var validasiLink = linkSs.split("docs.google.com/spreadsheets/d/").length
+	if (validasiLink==2){
+		
+		var nomorTujuan = $("#nomor-tujuan").val();
+		var jumlahDigit = nomorTujuan.length
+		//validasi nomor tujuan
+		var validasiNomor = nomorTujuan.split("628").length
+		if (validasiNomor==2 && jumlahDigit<=13 && jumlahDigit>=9){
+			$("#loadingUserHead").fadeIn(250, function() {
+				$(this).removeClass("hide");
+			})
+			var user = firebase.auth().currentUser;
+			var uid = user.uid
+			var idReminder = $("#id-remainder").val();
+			var waktu = $("#waktu").val();
+			$("input[name='inline-checkbox']:checked").each(function(){
+				remindTime += $(this).val()+"//"
+			});
+			
+			$("input[name='inline-checkbox1']:checked").each(function(){
+				kolomR += $(this).val()+"//"
+			});
+			usRef = firebase.database().ref("data").child(uid+"/"+idReminder);
+			
+			usRef.update({
+				"nomor_tujuan" : nomorTujuan,
+				"link_ss": linkSs,
+				"remind_time": remindTime,
+				"kolom": kolomR,
+				"waktu": waktu
+			})
+			
+			window.location.href="table.html"
+		} else {
+			alert("Masukan Nomor Yang Valid dengan Format 628xxxxxxx")
+		}
+	} else {
+		alert("Masukan Link Spread Yang Valid")
+	}
 });
 
 
