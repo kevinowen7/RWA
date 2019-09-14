@@ -1,3 +1,19 @@
+function thisDate(){
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1; //January is 0!
+
+	var yyyy = today.getFullYear();
+	if (dd < 10) {
+	  dd = '0' + dd;
+	} 
+	if (mm < 10) {
+	  mm = '0' + mm;
+	} 
+	var today = mm + '/' + dd + '/' + yyyy;
+	return today;
+}
+
 remindTime=""
 kolomR=""
 $("form").submit(function(){
@@ -33,7 +49,9 @@ $("form").submit(function(){
 				"link_ss": linkSs,
 				"remind_time": remindTime,
 				"kolom": kolomR,
-				"waktu": waktu
+				"waktu": waktu,
+				"reminderDate" : thisDate(),
+				"reminderTime" :9
 			})
 			
 			window.location.href="table.html"
@@ -59,6 +77,10 @@ data.once('child_added', function(snapshot) {
 $('#id-remainder').on('keypress', function(e) {
 	if (e.which == 32)
 		return false;
+});
+
+$('#link-ss').on('change keypress', function(e) {
+	$('#link-ss').val($('#link-ss').val().split(" ").join(""));
 });
 
 //check code ke firebase
